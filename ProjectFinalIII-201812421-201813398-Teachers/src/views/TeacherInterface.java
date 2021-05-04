@@ -28,7 +28,7 @@ public class TeacherInterface extends JPanel {
 		add(info, BorderLayout.CENTER);
 	}
 
-	public void changeCardStudent(String option) {
+	public void changeCardTeacher(String option) {
 		info.changeCardTeacher(option);
 	}
 

@@ -63,8 +63,6 @@ public class ConstantsGUI{
 	public static final Font DEFAULT_FONT_WELCOME_MESSAGE = new Font("Segoe UI", Font.BOLD, (int) (ConstantsGUI.WIDTH/19.4));
 	public static final String WELCOME_MESSAGE = "Bienvenido";
 	public static final String AVERAGE_TEXT_CARDLAYOUT = "Average";
-	public static final String DELETE_ACTIVITY_CARDLAYOUT = "DeleteActivity";
-	public static final String MODIFY_ACTIVITY_CARDLAYOUT = "ModifyActivity";
 	public static final String DELETE_COURSE_TEXT_CARDLAYOUT = "DeleteCourse";
 	public static final String MODIFY_COURSE_TEXT_CARDLAYOUT = "ModifyCourse";
 	public static final String ADD_COURSE_TEXT_CARDLAYOUT = "AddCourse";

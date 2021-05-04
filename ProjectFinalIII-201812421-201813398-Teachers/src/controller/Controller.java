@@ -191,7 +191,7 @@ public class Controller implements ActionListener {
 			conection.sendUTF(ConstantsCnt.ADD_COURSE_ST_TEXT_SUBCOMMAND);
 			window.resertComboBoxCourses();
 			window.setComboBoxCourses(conection.receiveUTF());
-			window.changeCardStudent(ConstantsCnt.ADD_COURSE_TEXT_CARDLAYOUT);
+			window.changeCardTeacher(ConstantsCnt.ADD_COURSE_TEXT_CARDLAYOUT);
 		} catch (IOException e3) {
 			JOptionPane.showMessageDialog(null, ConstantsCnt.ERROR_MESSAGE_FAILED_CONNECTION,
 					ConstantsCnt.ERROR_TEXT_TITLE, JOptionPane.ERROR_MESSAGE);
@@ -223,7 +223,7 @@ public class Controller implements ActionListener {
 			window.resertComboBoxCourses();
 			conection.sendUTF(name);
 			window.setComboBoxCourses(conection.receiveUTF());
-			window.changeCardStudent(ConstantsCnt.MODIFY_COURSE_TEXT_CARDLAYOUT);
+			window.changeCardTeacher(ConstantsCnt.MODIFY_COURSE_TEXT_CARDLAYOUT);
 		} catch (IOException e3) {
 			JOptionPane.showMessageDialog(null, ConstantsCnt.ERROR_MESSAGE_FAILED_CONNECTION,
 					ConstantsCnt.ERROR_TEXT_TITLE, JOptionPane.ERROR_MESSAGE);
@@ -244,7 +244,7 @@ public class Controller implements ActionListener {
 			} else {
 				window.setEditBtnDeleteCourse(true);
 			}
-			window.changeCardStudent(ConstantsCnt.DELETE_COURSE_TEXT_CARDLAYOUT);
+			window.changeCardTeacher(ConstantsCnt.DELETE_COURSE_TEXT_CARDLAYOUT);
 		} catch (Exception e1) {
 			JOptionPane.showMessageDialog(null, ConstantsCnt.ERROR_MESSAGE_FAILED_CONNECTION,
 					ConstantsCnt.ERROR_TEXT_TITLE, JOptionPane.ERROR_MESSAGE);

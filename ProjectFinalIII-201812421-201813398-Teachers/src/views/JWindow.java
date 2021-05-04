@@ -1,16 +1,13 @@
 package views;
 
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
-
 import controller.Event;
 
 public class JWindow extends JFrame {
 
 	private static final long serialVersionUID = 1L;
-
 	private JCardsPanel cards;
 	private LoginPanel login;
 	private TeacherInterface teacher;
@@ -55,8 +52,8 @@ public class JWindow extends JFrame {
 		login.resetLogin();
 	}
 
-	public void changeCardStudent(String option) {
-		teacher.changeCardStudent(option);
+	public void changeCardTeacher(String option) {
+		teacher.changeCardTeacher(option);
 	}
 
 	public void resertComboBoxCourses() {

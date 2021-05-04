@@ -14,10 +14,10 @@ import javax.swing.JSpinner.DefaultEditor;
 import javax.swing.JTextArea;
 import javax.swing.SpinnerModel;
 import javax.swing.SpinnerNumberModel;
-import javax.swing.SwingConstants;
 import javax.swing.border.TitledBorder;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
+
 import controller.Event;
 
 public class AddCoursePanel extends JPanel {
