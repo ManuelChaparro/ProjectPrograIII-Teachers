@@ -205,18 +205,6 @@ public class AddCoursePanel extends JPanel {
 		containerHours.add(end);
 	}
 
-	public String getModActString() {
-		if (!annotation.getText().equalsIgnoreCase("") && (int) end.getValue() > (int) init.getValue()) {
-			return annotation.getText() + ";;;" + scheduleField.getText() + ";;;" + days.getSelectedItem().toString() + "#"
-					+ init.getValue() + "#" + end.getValue();
-		} else if ((int) end.getValue() <= (int) init.getValue()) {
-			return "errorEnd";
-		} else {
-			return "emptyData";
-		}
-
-	}
-
 	public void resetComboBoxCourses() {
 		course.removeAllItems();		
 	}

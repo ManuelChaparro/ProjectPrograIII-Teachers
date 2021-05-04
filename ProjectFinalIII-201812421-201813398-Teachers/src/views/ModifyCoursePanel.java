@@ -14,7 +14,6 @@ import javax.swing.JSpinner.DefaultEditor;
 import javax.swing.JTextArea;
 import javax.swing.SpinnerModel;
 import javax.swing.SpinnerNumberModel;
-import javax.swing.SwingConstants;
 import javax.swing.border.TitledBorder;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
@@ -122,6 +121,9 @@ public class ModifyCoursePanel extends JPanel {
 				TitledBorder.TOP, ConstantsGUI.DEFAULT_FONT_BOLD, ConstantsGUI.DARK_BLUE));
 		createDaysComboBox();
 		createContainerHours(actionListener);
+		containerSchedule.setVisible(false);
+		
+		containerSchedule.setEnabled(false);
 		schedule.add(containerSchedule);
 
 		JPanel containerButton = new JPanel();
@@ -219,11 +221,22 @@ public class ModifyCoursePanel extends JPanel {
 	public void resetComboBoxCourses() {
 		course.removeAllItems();		
 	}
+	
 
 	public void setComboBoxCourses(String courses) {
-		String[] coursesVector = courses.split(";");
-		for (int i = 0; i < coursesVector.length; i++) {
-			course.addItem(coursesVector[i]);
+		if (courses.equalsIgnoreCase("")) {
+			course.setVisible(false);
+			showModifyCourse(false);
+			createCourse.setText("No hay Asignaturas por modificar");
+			createCourse.setEnabled(false);
+		}else {
+			String[] coursesVector = courses.split(";");
+			for (int i = 0; i < coursesVector.length; i++) {
+				course.addItem(coursesVector[i]);
+			}
+			createCourse.setText("Confirmar");
+			course.setVisible(true);
+			createCourse.setEnabled(true);
 		}
 	}
 	
@@ -245,7 +258,6 @@ public class ModifyCoursePanel extends JPanel {
 
 	public void showModifyCourse(boolean b) {
 		containerModify.setVisible(b);
-		containerSchedule.setVisible(b);
 		acceptCourse.setVisible(b);
 		scheduleField.setText("");
 		annotation.setText("");

@@ -58,7 +58,7 @@ public class PanelInfoTeacher extends JPanel {
 		cards.add(containerWelcome);
 	}
 
-	public void changeCardStudent(String nameCard) {
+	public void changeCardTeacher(String nameCard) {
 		cards.changeCardLayout(nameCard);
 	}
 
@@ -76,24 +76,12 @@ public class PanelInfoTeacher extends JPanel {
 		return addCourse.getNewCourse();
 	}
 
-	public void resetComboDeleteHomeCourses() {
-		deleteCourse.resetComboDeleteHomeCourses();
-	}
-
 	public void setVisibleConfirmDelete(boolean isVisible) {
 		deleteCourse.setVisibleConfirmDelete(isVisible);
 	}
 
 	public void setVisibleDeleteCourse(boolean isVisible) {
 		deleteCourse.setVisibleDeleteCourse(isVisible);
-	}
-
-	public void setVisibleDeleteHomework(boolean isVisible) {
-		deleteCourse.setVisibleDeleteHomework(isVisible);
-	}
-
-	public String getDeleteHomework() {
-		return deleteCourse.getDeleteHomework();
 	}
 
 	public String getDeleteCourse() {
@@ -112,32 +100,12 @@ public class PanelInfoTeacher extends JPanel {
 		deleteCourse.setComboBoxDeleteCourses(split);
 	}
 
-	public void setComboBoxDeleteHomeworks(String[] homeworks) {
-		deleteCourse.setComboBoxDeleteHomeworks(homeworks);
-	}
-
-	public void resetFindHomework() {
-		deleteCourse.resetFindHomework();
-	}
-
 	public void resetComboDeleteCourses() {
 		deleteCourse.resetComboDeleteCourses();
 	}
 
 	public void removeSpecificCourse(String deleteCourses) {
 		deleteCourse.removeSpecificCourse(deleteCourses);
-	}
-
-	public void removeSpecificHomework(String deleteHomework) {
-		deleteCourse.removeSpecificHomework(deleteHomework);
-	}
-
-	public boolean getItemsDeleteHomework() {
-		return deleteCourse.getItemsDeleteHomework();
-	}
-
-	public void setEditBtnDeleteHomework(boolean isEditable) {
-		deleteCourse.setEditBtnDeleteHomework(isEditable);
 	}
 
 	public void setNameUser(String name) {

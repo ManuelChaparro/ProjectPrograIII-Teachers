@@ -32,7 +32,7 @@ public class JWindow extends JFrame {
 		cards.add(login, ConstantsGUI.LOGIN_TEXT_CARDLAYOUT);
 
 		teacher = new TeacherInterface(actionListener);
-		cards.add(teacher, ConstantsGUI.STUDENT_TEXT_CARDLAYOUT);
+		cards.add(teacher, ConstantsGUI.TEACHER_TEXT_CARDLAYOUT);
 	}
 
 	public void changeCard(String nameCard) {
@@ -83,24 +83,12 @@ public class JWindow extends JFrame {
 		teacher.changeColorMenuBtn(event);
 	}
 
-	public void resetComboDeleteHomeCourses() {
-		teacher.resetComboDeleteHomeCourses();
-	}
-
 	public void setVisibleConfirmDelete(boolean isVisible) {
 		teacher.setVisibleConfirmDelete(isVisible);
 	}
 
 	public void setVisibleDeleteCourse(boolean isVisible) {
 		teacher.setVisibleDeleteCourse(isVisible);
-	}
-
-	public void setVisibleDeleteHomework(boolean isVisible) {
-		teacher.setVisibleDeleteHomework(isVisible);
-	}
-
-	public String getDeleteHomework() {
-		return teacher.getDeleteHomework();
 	}
 
 	public String getDeleteCourse() {
@@ -119,32 +107,12 @@ public class JWindow extends JFrame {
 		teacher.setComboBoxDeleteCourses(split);
 	}
 
-	public void setComboBoxDeleteHomeworks(String[] homeworks) {
-		teacher.setComboBoxDeleteHomeworks(homeworks);
-	}
-
-	public void resetFindHomework() {
-		teacher.resetFindHomework();
-	}
-
 	public void resetComboDeleteCourses() {
 		teacher.resetComboDeleteCourses();
 	}
 
 	public void removeSpecificCourse(String deleteCourse) {
 		teacher.removeSpecificCourse(deleteCourse);
-	}
-
-	public void removeSpecificHomework(String deleteHomework) {
-		teacher.removeSpecificHomework(deleteHomework);
-	}
-
-	public boolean getItemsDeleteHomework() {
-		return teacher.getItemsDeleteHomework();
-	}
-
-	public void setEditBtnDeleteHomework(boolean isEditable) {
-		teacher.setEditBtnDeleteHomework(isEditable);
 	}
 
 	public void setNameUser(String name) {

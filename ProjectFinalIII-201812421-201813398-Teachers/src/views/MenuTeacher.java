@@ -14,13 +14,13 @@ import javax.swing.JPanel;
 
 import controller.Event;
 
-public class MenuStudent extends JPanel {
+public class MenuTeacher extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel menuAddCourse, menuModifyCourse, menuDeleteCourse;
 	private ButtonObj addCourseBtn, modifyCourseBtn, deleteCourseBtn;
 
-	public MenuStudent(ActionListener actionListener) {
+	public MenuTeacher(ActionListener actionListener) {
 		setBackground(Color.WHITE);
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		setPreferredSize(new Dimension(ConstantsGUI.WIDTH / 4, ConstantsGUI.HEIGHT));
@@ -93,8 +93,8 @@ public class MenuStudent extends JPanel {
 				ConstantsGUI.HEIGHT / 400, 0, Color.BLACK));
 		menuDeleteCourse.setPreferredSize(new Dimension(ConstantsGUI.WIDTH / 4, ConstantsGUI.HEIGHT / 20));
 		menuDeleteCourse.setBackground(ConstantsGUI.DARK_BLUE);
-		deleteCourseBtn = new ButtonObj(ConstantsGUI.BT_DELETE_COURSE_ST, actionListener,
-				Event.DELETE_COURSE_OR_HOMEWORK.toString());
+		deleteCourseBtn = new ButtonObj(ConstantsGUI.BT_DELETE_COURSE_TH, actionListener,
+				Event.DELETE_COURSE_BTN.toString());
 		deleteCourseBtn.setBorder(null);
 		menuDeleteCourse.add(deleteCourseBtn);
 
@@ -107,66 +107,18 @@ public class MenuStudent extends JPanel {
 
 	public void changeColorMenuBtn(Event event) {
 		switch (event) {
-		case SHOW_SCHEDULE:
-			changeColorShowSchedulerBtn();
-			break;
 		case ADD_COURSE_TH:
 			changeColorAddCourseBtn();
 			break;
 		case MODIFY_COURSE_TH:
 			changeColorModifyCourseBtn();
 			break;
-		case DELETE_COURSE_OR_HOMEWORK:
+		case DELETE_COURSE_BTN:
 			changeColorDeleteCourseBtn();
-			break;
-		case ADD_OR_MOD_ACTIVITY_ST:
-			changeColorAddActivityBtn();
-			break;
-		case AVG_ST:
-			changeColorModifyActivityBtn();
-			break;
-		case DELETE_ACTIVITY_ST:
-			changeColorDeleteActivityBtn();
 			break;
 		default:
 			break;
 		}
-	}
-
-	private void changeColorShowSchedulerBtn() {
-		menuAddCourse.setBackground(ConstantsGUI.DARK_BLUE);
-		addCourseBtn.setBackground(ConstantsGUI.DARK_BLUE);
-		menuModifyCourse.setBackground(ConstantsGUI.DARK_BLUE);
-		modifyCourseBtn.setBackground(ConstantsGUI.DARK_BLUE);
-		menuDeleteCourse.setBackground(ConstantsGUI.DARK_BLUE);
-		deleteCourseBtn.setBackground(ConstantsGUI.DARK_BLUE);
-	}
-
-	private void changeColorDeleteActivityBtn() {
-		menuAddCourse.setBackground(ConstantsGUI.DARK_BLUE);
-		addCourseBtn.setBackground(ConstantsGUI.DARK_BLUE);
-		menuModifyCourse.setBackground(ConstantsGUI.DARK_BLUE);
-		modifyCourseBtn.setBackground(ConstantsGUI.DARK_BLUE);
-		menuDeleteCourse.setBackground(ConstantsGUI.DARK_BLUE);
-		deleteCourseBtn.setBackground(ConstantsGUI.DARK_BLUE);
-	}
-
-	private void changeColorModifyActivityBtn() {
-		menuAddCourse.setBackground(ConstantsGUI.DARK_BLUE);
-		addCourseBtn.setBackground(ConstantsGUI.DARK_BLUE);
-		menuModifyCourse.setBackground(ConstantsGUI.DARK_BLUE);
-		modifyCourseBtn.setBackground(ConstantsGUI.DARK_BLUE);
-		menuDeleteCourse.setBackground(ConstantsGUI.DARK_BLUE);
-		deleteCourseBtn.setBackground(ConstantsGUI.DARK_BLUE);
-	}
-
-	private void changeColorAddActivityBtn() {
-		menuAddCourse.setBackground(ConstantsGUI.DARK_BLUE);
-		addCourseBtn.setBackground(ConstantsGUI.DARK_BLUE);
-		menuModifyCourse.setBackground(ConstantsGUI.DARK_BLUE);
-		modifyCourseBtn.setBackground(ConstantsGUI.DARK_BLUE);
-		menuDeleteCourse.setBackground(ConstantsGUI.DARK_BLUE);
-		deleteCourseBtn.setBackground(ConstantsGUI.DARK_BLUE);
 	}
 
 	private void changeColorDeleteCourseBtn() {

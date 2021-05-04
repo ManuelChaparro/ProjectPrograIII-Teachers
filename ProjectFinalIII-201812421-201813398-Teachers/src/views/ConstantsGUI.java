@@ -39,21 +39,17 @@ public class ConstantsGUI{
 	//Constants
 	public static final int TOTAL_HOURS = 15;
 	public static final int TOTAL_DAYS = 8;
-	public static final String NAME_APP = "Xorder";
+	public static final String NAME_APP = "Xorder - Docentes";
 	public static final String INFO_LOGIN = "INICIO DE SESION - PROFESORES";
 	public static final String INFO_CREATE = "CREAR NUEVA CUENTA";
-	public static final String MSJ_CREATE_ACCOUNT = "�No tienes una cuenta? �Crea una nueva!";
-	public static final String MSJ_LOGIN_ACCOUNT = "�Tienes una cuenta? �Inicia Sesion!";
+	public static final String MSJ_CREATE_ACCOUNT = "No tienes una cuenta? Crea una nueva!";
+	public static final String MSJ_LOGIN_ACCOUNT = "Tienes una cuenta? Inicia sesion!";
 	public static final String BT_CREATE_ACCOUNT = "Crear cuenta";
 	public static final String BT_LOGIN_ACCOUNT = "Iniciar sesion";
 	public static final String CONFIRM_DATA = "CONFIRMAR DATOS";
 	public static final String BT_ADD_COURSE_ST = "Inscribir Asignatura";
 	public static final String BT_MODIFY_COURSE_TH = "Modificar Asignatura";
-	public static final String BT_DELETE_COURSE_ST = "Cancelar Asignatura";
-	public static final String BT_ADD_OR_MOD_ACTIVITY_ST = "Agregar/Modificar Actividad";
-	public static final String BT_AVG_ST = "Calcular Promedios";
-	public static final String BT_DELETE_ACTIVITY_ST = "Cancelar actividad";
-	public static final String BT_SCHEDULE_ST = "Horario";
+	public static final String BT_DELETE_COURSE_TH = "Cancelar Asignatura";
 	public static final String EMPTY_STRING = "";
 	public static final String SEPARATOR_DOT_AND_COMA = ";";
 	public static final String SEPARATOR_THREE_DOT_AND_COMA = ";;;";
@@ -61,7 +57,7 @@ public class ConstantsGUI{
 	public static final String SEPARATOR_NUMERAL = "#";
 	public static final String SEPARATOR_PERCENT = "%";
 
-	public static final String STUDENT_TEXT_CARDLAYOUT = "Student";
+	public static final String TEACHER_TEXT_CARDLAYOUT = "Teacher";
 	public static final String LOGIN_TEXT_CARDLAYOUT = "Login";
 	public static final String TITLE_WINDOW = "Xorder-Usuario";
 	public static final Font DEFAULT_FONT_WELCOME_MESSAGE = new Font("Segoe UI", Font.BOLD, (int) (ConstantsGUI.WIDTH/19.4));

@@ -18,8 +18,8 @@ public class DeleteCourse extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel optionsDeleteContainer, confirmDeleteContainer, containerConfirmButtons;
-	private JComboBox<String> course, homework;
-	private ButtonObj findHomework, deleteHomework, deleteCourse, confirmDeleteCourse, confirmDeleteHomework;
+	private JComboBox<String> course;
+	private ButtonObj deleteCourse, confirmDeleteCourse;
 
 	public DeleteCourse(ActionListener actionListener) {
 		setLayout(new GridLayout(2, 1, 50, 10));
@@ -39,16 +39,13 @@ public class DeleteCourse extends JPanel {
 
 		createCoursesComboBox(actionListener, containerBox);
 		createDeleteBtns(actionListener, containerBox);
-		createHomeworksComboBox(actionListener, containerBox);
-		createDeleteHomeworkBtn(actionListener, containerBox);
-
 		add(containerBox);
 	}
 
 	private void createCoursesComboBox(ActionListener actionListener, JPanel containerBox) {
 		course = new JComboBox<String>();
 		course.addActionListener(actionListener);
-		course.setActionCommand(Event.VISIBLE_HOMEWORK.toString());
+		course.setActionCommand(Event.VISIBLE_DELETE_COURSE_BOX.toString());
 		course.setBackground(Color.WHITE);
 		course.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(ConstantsGUI.DARK_BLUE, 1),
 				"ASIGNATURA", TitledBorder.LEFT, TitledBorder.TOP, ConstantsGUI.DEFAULT_FONT_BOLD,
@@ -60,46 +57,17 @@ public class DeleteCourse extends JPanel {
 	}
 
 	private void createDeleteBtns(ActionListener actionListener, JPanel containerBox) {
-		optionsDeleteContainer = new JPanel(new GridLayout(1, 2, (int) (ConstantsGUI.WIDTH / 6.89), 10));
+		optionsDeleteContainer = new JPanel();
 		optionsDeleteContainer.setBackground(Color.WHITE);
-
-		JPanel containerButtonFH = new JPanel();
-		containerButtonFH.setBackground(Color.WHITE);
-		findHomework = new ButtonObj("Buscar Tareas", actionListener, Event.FIND_HOMEWORK_DELETE.toString(),
-				ConstantsGUI.DARK_BLUE);
-		containerButtonFH.add(findHomework);
-		optionsDeleteContainer.add(containerButtonFH);
 
 		JPanel containerButtonDC = new JPanel();
 		containerButtonDC.setBackground(Color.WHITE);
-		deleteCourse = new ButtonObj("ELIMINAR ASIGNATURA", actionListener, Event.DELETE_COURSE.toString(),
+		deleteCourse = new ButtonObj("ELIMINAR ASIGNATURA", actionListener, Event.VISIBLE_DELETE_COURSE_BTN.toString(),
 				ConstantsGUI.DARK_RED);
 		containerButtonDC.add(deleteCourse);
 
 		optionsDeleteContainer.add(containerButtonDC);
 		containerBox.add(optionsDeleteContainer);
-	}
-
-	private void createHomeworksComboBox(ActionListener actionListener, JPanel containerBox) {
-		homework = new JComboBox<String>();
-		homework.setBackground(Color.WHITE);
-		homework.addActionListener(actionListener);
-		homework.setActionCommand(Event.VISIBLE_MOD_COURSE.toString());
-		homework.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(ConstantsGUI.DARK_BLUE, 1),
-				"TAREA", TitledBorder.LEFT, TitledBorder.TOP, ConstantsGUI.DEFAULT_FONT_BOLD, ConstantsGUI.DARK_BLUE));
-		homework.setFont(ConstantsGUI.DEFAULT_FONT_BOLD);
-		homework.setForeground(Color.BLACK);
-		homework.setPreferredSize(new Dimension(ConstantsGUI.WIDTH / 2, ConstantsGUI.HEIGHT / 12));
-		containerBox.add(homework);
-	}
-
-	private void createDeleteHomeworkBtn(ActionListener actionListener, JPanel containerBox) {
-		JPanel containerButtonDH = new JPanel();
-		containerButtonDH.setBackground(Color.WHITE);
-		deleteHomework = new ButtonObj("ELIMINAR TAREA", actionListener, Event.DELETE_HOMEWORK.toString(),
-				ConstantsGUI.DARK_RED);
-		containerButtonDH.add(deleteHomework);
-		containerBox.add(containerButtonDH);
 	}
 
 	private void initConfirmDelete(ActionListener actionListener) {
@@ -132,43 +100,17 @@ public class DeleteCourse extends JPanel {
 				ConstantsGUI.DARK_RED);
 		containerConfirmButtons.add(confirmDeleteCourse, BorderLayout.CENTER);
 
-		confirmDeleteHomework = new ButtonObj("ELIMINAR TAREA", actionListener, Event.CONFIRM_DELETE_HOMEWORK.toString(),
-				ConstantsGUI.DARK_RED);
-		containerConfirmButtons.add(confirmDeleteHomework, BorderLayout.CENTER);
-
 		confirmDeleteContainer.add(containerConfirmButtons);
-	}
-
-	public void setVisibleHomework(boolean isVisible) {
-		homework.setVisible(isVisible);
-		deleteHomework.setVisible(isVisible);
-		confirmDeleteContainer.setVisible(false);
-	}
-
-	public void resetComboDeleteHomeCourses() {
-		homework.removeAllItems();
 	}
 
 	public void setVisibleConfirmDelete(boolean isVisible) {
 		confirmDeleteContainer.setVisible(isVisible);
 		confirmDeleteCourse.setVisible(isVisible);
-		confirmDeleteHomework.setVisible(isVisible);
 	}
 
 	public void setVisibleDeleteCourse(boolean isVisible) {
 		confirmDeleteContainer.setVisible(isVisible);
 		confirmDeleteCourse.setVisible(isVisible);
-		confirmDeleteHomework.setVisible(!isVisible);
-	}
-
-	public void setVisibleDeleteHomework(boolean isVisible) {
-		confirmDeleteContainer.setVisible(isVisible);
-		confirmDeleteHomework.setVisible(isVisible);
-		confirmDeleteCourse.setVisible(!isVisible);
-	}
-
-	public String getDeleteHomework() {
-		return homework.getSelectedItem().toString();
 	}
 
 	public String getDeleteCourse() {
@@ -186,7 +128,6 @@ public class DeleteCourse extends JPanel {
 	public void setEditBtnDeleteCourse(boolean isBoolean) {
 		deleteCourse.setEnabled(isBoolean);
 		course.setVisible(isBoolean);
-		findHomework.setVisible(isBoolean);
 		if (isBoolean) {
 			deleteCourse.setText("ELIMINAR ASIGNATURA");
 		} else {
@@ -202,19 +143,6 @@ public class DeleteCourse extends JPanel {
 		}
 	}
 
-	public void setComboBoxDeleteHomeworks(String[] homeworks) {
-		for (String homework : homeworks) {
-			if (!homework.equalsIgnoreCase("")) {
-				this.homework.addItem(homework);
-			}
-		}
-	}
-
-	public void resetFindHomework() {
-		homework.removeAllItems();
-		confirmDeleteContainer.setVisible(false);
-	}
-
 	public void resetComboDeleteCourses() {
 		course.removeAllItems();
 	}
@@ -224,33 +152,6 @@ public class DeleteCourse extends JPanel {
 			if (course.getItemAt(i).toString().equalsIgnoreCase(deleteCourse)) {
 				course.removeItemAt(i);
 			}
-		}
-	}
-
-	public void removeSpecificHomework(String deleteHomework2) {
-		for (int i = 0; i < homework.getItemCount(); i++) {
-			if (homework.getItemAt(i).toString().equalsIgnoreCase(deleteHomework2)) {
-				homework.removeItemAt(i);
-			}
-		}
-	}
-
-	public boolean getItemsDeleteHomework() {
-		if (homework.getItemCount() != 0) {
-			return true;
-		} else {
-			return false;
-		}
-	}
-
-	public void setEditBtnDeleteHomework(boolean isBoolean) {
-		homework.setVisible(isBoolean);
-		deleteHomework.setVisible(true);
-		deleteHomework.setEnabled(isBoolean);
-		if (isBoolean) {
-			deleteHomework.setText("ELIMINAR TAREA");
-		} else {
-			deleteHomework.setText("No hay Tareas por eliminar");
 		}
 	}
 }

@@ -3,11 +3,8 @@ package controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
-
 import javax.swing.JOptionPane;
-
 import com.google.gson.Gson;
-
 import models.User;
 import net.Conection;
 import views.ConstantsGUI;
@@ -17,7 +14,7 @@ public class Controller implements ActionListener {
 
 	private JWindow window;
 	private Conection conection;
-	private String code, name;
+	private String name;
 
 	public Controller() {
 		conection = new Conection();
@@ -71,34 +68,17 @@ public class Controller implements ActionListener {
 		case DELETE_SCHEDULE_COURSE:
 			clearScheduleModify();
 			break;
-		case DELETE_COURSE_OR_HOMEWORK:
-			actionDeleteCourseOrHomework();
+		case DELETE_COURSE_BTN:
+			actionDeleteCourse();
 			break;
-		case DELETE_COURSE:
+		case VISIBLE_DELETE_COURSE_BTN:
 			window.setVisibleDeleteCourse(true);
+			break;
+		case VISIBLE_DELETE_COURSE_BOX:
+			window.setVisibleDeleteCourse(false);
 			break;
 		case CONFIRM_DELETE_COURSE:
 			actionConfirmDeleteCourse();
-			break;
-		case ACTION_SCHEDULER_BTN:
-			break;
-		case ADD_OR_MODIFY_HOMEWORK:
-			break;
-		case ADD_OR_MOD_ACTIVITY_ST:
-			break;
-		case AVG_ST:
-			break;
-		case CALCULATE_AVG:
-			break;
-		case CONFIRM_DELETE_ACTIVITY:
-			break;
-		case CONFIRM_DELETE_HOMEWORK:
-			break;
-		case DELETE_ACTIVITY:
-			break;
-		case DELETE_ACTIVITY_ST:
-			break;
-		case DELETE_HOMEWORK:
 			break;
 		}
 	}
@@ -163,11 +143,10 @@ public class Controller implements ActionListener {
 					conection.sendBoolean(true);
 					conection.sendUTF(stringUser);
 					if (conection.receiveBoolean()) {
-						code = dataUser[0];
-						conection.sendUTF(code);
+						conection.sendUTF(dataUser[0]);
 						name = conection.receiveUTF();
 						window.setNameUser(name);
-						window.changeCard(ConstantsCnt.STUDENT_TEXT_CARDLAYOUT);
+						window.changeCard(ConstantsCnt.TEACHER_TEXT_CARDLAYOUT);
 					} else {
 						JOptionPane.showMessageDialog(null, ConstantsCnt.WARNING_MESSAGE_NOT_EXIST_USER,
 								ConstantsCnt.ERROR_TEXT_TITLE, JOptionPane.WARNING_MESSAGE);
@@ -252,14 +231,13 @@ public class Controller implements ActionListener {
 	}
 
 
-	private void actionDeleteCourseOrHomework() {
+	private void actionDeleteCourse() {
 		try {
 			conection.sendUTF(ConstantsCnt.DELETE_COURSE_OR_HOMEWORK_TEXT_SUBCOMMAND);
-			window.changeColorMenuBtn(Event.DELETE_COURSE_OR_HOMEWORK);
+			window.changeColorMenuBtn(Event.DELETE_COURSE_BTN);
 			window.setVisibleConfirmDelete(false);
-			window.resetComboDeleteHomeCourses();
 			window.resetComboDeleteCourses();
-			conection.sendUTF(code);
+			conection.sendUTF(name);
 			window.setComboBoxDeleteCourses(conection.receiveUTF().split(ConstantsCnt.SEPARATOR_ONE_DOT_AND_COMA));
 			if (!window.getSelectedItemsCourse()) {
 				window.setEditBtnDeleteCourse(false);
@@ -276,9 +254,14 @@ public class Controller implements ActionListener {
 	private void actionConfirmDeleteCourse() {
 		try {
 			conection.sendUTF(ConstantsCnt.CONFIRM_DELETE_COURSE_TEXT_SUBCOMMAND);
-			conection.sendUTF(code);
+			conection.sendUTF(name);
 			conection.sendUTF(window.getDeleteCourse());
 			window.removeSpecificCourse(window.getDeleteCourse());
+			if (conection.receiveBoolean()) {
+				JOptionPane.showMessageDialog(null, "Se han borrado todas las asignaturas", "CANCELAR ASIGNATURA", JOptionPane.INFORMATION_MESSAGE);
+			}else {
+				JOptionPane.showMessageDialog(null, "Se ha eliminado correctamente", "CANCELAR ASIGNATURA", JOptionPane.INFORMATION_MESSAGE);
+			}
 			if (!window.getSelectedItemsCourse()) {
 				window.setEditBtnDeleteCourse(false);
 			} else {

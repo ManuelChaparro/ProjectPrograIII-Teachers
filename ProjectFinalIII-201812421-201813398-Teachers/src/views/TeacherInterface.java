@@ -11,7 +11,7 @@ import controller.Event;
 public class TeacherInterface extends JPanel {
 
 	private static final long serialVersionUID = 1L;
-	private MenuStudent menu;
+	private MenuTeacher menu;
 	private PanelInfoTeacher info;
 
 	public TeacherInterface(ActionListener actionListener) {
@@ -21,7 +21,7 @@ public class TeacherInterface extends JPanel {
 	}
 
 	private void initComponents(ActionListener actionListener) {
-		menu = new MenuStudent(actionListener);
+		menu = new MenuTeacher(actionListener);
 		add(menu, BorderLayout.WEST);
 
 		info = new PanelInfoTeacher(actionListener);
@@ -29,7 +29,7 @@ public class TeacherInterface extends JPanel {
 	}
 
 	public void changeCardStudent(String option) {
-		info.changeCardStudent(option);
+		info.changeCardTeacher(option);
 	}
 
 	public void setComboBoxCourses(String courses) {
@@ -52,24 +52,12 @@ public class TeacherInterface extends JPanel {
 		menu.changeColorMenuBtn(event);
 	}
 
-	public void resetComboDeleteHomeCourses() {
-		info.resetComboDeleteHomeCourses();
-	}
-
 	public void setVisibleConfirmDelete(boolean isVisible) {
 		info.setVisibleConfirmDelete(isVisible);
 	}
 
 	public void setVisibleDeleteCourse(boolean isVisible) {
 		info.setVisibleDeleteCourse(isVisible);
-	}
-
-	public void setVisibleDeleteHomework(boolean isVisible) {
-		info.setVisibleDeleteHomework(isVisible);
-	}
-
-	public String getDeleteHomework() {
-		return info.getDeleteHomework();
 	}
 
 	public String getDeleteCourse() {
@@ -88,32 +76,12 @@ public class TeacherInterface extends JPanel {
 		info.setComboBoxDeleteCourses(split);
 	}
 
-	public void setComboBoxDeleteHomeworks(String[] homeworks) {
-		info.setComboBoxDeleteHomeworks(homeworks);
-	}
-
-	public void resetFindHomework() {
-		info.resetFindHomework();
-	}
-
 	public void resetComboDeleteCourses() {
 		info.resetComboDeleteCourses();
 	}
 
 	public void removeSpecificCourse(String deleteCourse) {
 		info.removeSpecificCourse(deleteCourse);
-	}
-
-	public void removeSpecificHomework(String deleteHomework) {
-		info.removeSpecificHomework(deleteHomework);
-	}
-
-	public boolean getItemsDeleteHomework() {
-		return info.getItemsDeleteHomework();
-	}
-
-	public void setEditBtnDeleteHomework(boolean isEditable) {
-		info.setEditBtnDeleteHomework(isEditable);
 	}
 
 	public void setNameUser(String name) {
