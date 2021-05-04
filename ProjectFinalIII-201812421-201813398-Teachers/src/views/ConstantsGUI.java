@@ -48,14 +48,15 @@ public class ConstantsGUI{
 	public static final String BT_LOGIN_ACCOUNT = "Iniciar sesion";
 	public static final String CONFIRM_DATA = "CONFIRMAR DATOS";
 	public static final String BT_ADD_COURSE_ST = "Inscribir Asignatura";
-	public static final String BT_MODIFY_COURSE_ST = "Agregar/Modificar Tarea";
-	public static final String BT_DELETE_COURSE_ST = "Cancelar Tarea/Asignatura";
+	public static final String BT_MODIFY_COURSE_TH = "Modificar Asignatura";
+	public static final String BT_DELETE_COURSE_ST = "Cancelar Asignatura";
 	public static final String BT_ADD_OR_MOD_ACTIVITY_ST = "Agregar/Modificar Actividad";
 	public static final String BT_AVG_ST = "Calcular Promedios";
 	public static final String BT_DELETE_ACTIVITY_ST = "Cancelar actividad";
 	public static final String BT_SCHEDULE_ST = "Horario";
 	public static final String EMPTY_STRING = "";
 	public static final String SEPARATOR_DOT_AND_COMA = ";";
+	public static final String SEPARATOR_THREE_DOT_AND_COMA = ";;;";
 	public static final String SEPARATOR_Y_ESPECIAL = "&";
 	public static final String SEPARATOR_NUMERAL = "#";
 	public static final String SEPARATOR_PERCENT = "%";

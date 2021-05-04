@@ -84,7 +84,7 @@ public class DeleteCourse extends JPanel {
 		homework = new JComboBox<String>();
 		homework.setBackground(Color.WHITE);
 		homework.addActionListener(actionListener);
-		homework.setActionCommand(Event.VISIBLE_MODIFY.toString());
+		homework.setActionCommand(Event.VISIBLE_MOD_COURSE.toString());
 		homework.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(ConstantsGUI.DARK_BLUE, 1),
 				"TAREA", TitledBorder.LEFT, TitledBorder.TOP, ConstantsGUI.DEFAULT_FONT_BOLD, ConstantsGUI.DARK_BLUE));
 		homework.setFont(ConstantsGUI.DEFAULT_FONT_BOLD);
